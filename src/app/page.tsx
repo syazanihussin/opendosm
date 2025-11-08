@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Button from './Button/Button'
-import Card from './Card/Card'
+import Button from './components/Button/Button'
+import Card from './components/Card/Card'
 
 
 export default function Home() {
