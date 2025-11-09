@@ -1,7 +1,18 @@
 {
   "name": "opendosm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Syamie",
+  "contributors": [
+    {
+      "name": "Syazani Hussin",
+      "email": "syazanihussin@gmail.com"
+    },
+    {
+      "name": "Syahmi Mokhtar",
+      "email": "syahmiez96@gmail.com"
+    }
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -27,6 +38,7 @@
     "eslint-config-next": "^16.0.1",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^2.8.8",
     "tailwindcss": "^4",
     "typescript": "^5"
