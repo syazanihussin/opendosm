@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { CardProps } from './Card.types'
-
-const Card: React.FC<CardProps> = ({ children }) => {
+const Card = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <div className="bg-white p-6 rounded-xl shadow mb-6 flex justify-between items-center">

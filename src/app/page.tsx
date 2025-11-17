@@ -1,7 +1,7 @@
-import Button from '../components/button/Button'
-import Card from '../components/card/Card'
+import Button from '@/components/button/Button'
+import Card from '@/components/card/Card'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <div className="min-h-screen bg-gray-100 flex">
@@ -73,3 +73,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
