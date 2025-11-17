@@ -2,18 +2,21 @@
 
 import React, { useEffect, useState } from 'react'
 
-import useGetIncome from './hooks/useGetIncome'
+import useGetDataset from '@/hooks/useGetDataset'
+import { DatasetId } from '@/types/dataset.types'
 
 const Households = () => {
+  const [datasetId, setDatasetId] = useState<DatasetId>('hh_income')
   const [date, setDate] = useState<string>()
   const [state, setState] = useState<string>()
   const [district, setDistrict] = useState<string>()
 
-  const { data, isLoading, error } = useGetIncome({ date, state, district })
+  const { data, isLoading, error } = useGetDataset({ id: datasetId, date, state, district })
 
   useEffect(() => {
     // refetch with filter after 10 seconds
     setTimeout(() => {
+      setDatasetId('hh_income_district')
       setDate('2022-01-01')
       setState('Kedah')
       setDistrict('Baling')
