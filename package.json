@@ -1,27 +1,57 @@
 {
   "name": "opendosm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Syamie",
+  "contributors": [
+    {
+      "name": "Syazani Hussin",
+      "email": "syazanihussin@gmail.com"
+    },
+    {
+      "name": "Syahmi Mokhtar",
+      "email": "syahmiez96@gmail.com"
+    }
+  ],
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "lint-staged": "lint-staged",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.9",
+    "axios": "^1.13.2",
+    "next": "16.0.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "babel-plugin-react-compiler": "1.0.0",
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
+    "@tanstack/react-query-devtools": "^5.90.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.0.1"
+    "eslint-config-next": "^16.0.1",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,json,md,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
