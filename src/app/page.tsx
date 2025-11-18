@@ -20,13 +20,12 @@ export default function Home() {
 
       <main className="min-h-screen w-full bg-gray-100 flex">
 
-        <aside className="w-64 h-screen bg-gray-900 text-white">
-
-                  <Sidebar />
+        <aside className="w-64 h-screen bg-gray-900">
+             <Sidebar />
         </aside>
 
 
-          <section className="container-fluid w-full h-full">
+          <section className="p-10 w-full h-full bg-blue-500">
 
                   <Card>
                     <div>
