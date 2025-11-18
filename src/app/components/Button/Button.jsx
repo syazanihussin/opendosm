@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = ({label, variant="primary"}) => {
+const Button = ({label, variant}) => {
 
 
-  const baseClasses = "px-6 py-2 rounded-lg font-medium";
+  const baseClasses = "px-6 py-2 rounded-lg font-bold";
 
   const variantClasses = {
     primary: "bg-blue-600 text-white",
@@ -14,7 +14,7 @@ const Button = ({label, variant="primary"}) => {
   return (
    <>
         <button className={`${baseClasses} ${variantClasses[variant]}`}>
-        {label}
+           {label}
         </button>   
     
     </>
