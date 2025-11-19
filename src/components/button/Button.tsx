@@ -3,7 +3,7 @@ import React from 'react'
 import { ButtonProps, Variant } from './Button.types'
 
 const Button = ({ label, variant = 'primary' }: ButtonProps) => {
-  const baseClasses = 'px-6 py-2 rounded-lg font-medium'
+  const baseClasses = 'px-6 py-2 rounded-lg font-bold'
 
   const variantClasses: Record<Variant, string> = {
     primary: 'bg-blue-600 text-white',
