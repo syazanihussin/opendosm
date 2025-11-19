@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Sidebar = () => {
+const Sidebar = () => {
   return (
     <>
       <aside className="w-64 h-full rounded-3xl bg-gray-900 text-white   p-4 space-y-4">
@@ -17,4 +17,5 @@ export const Sidebar = () => {
     </>
   )
 }
+
 export default Sidebar

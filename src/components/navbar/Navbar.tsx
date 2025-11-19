@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 
-const Navbar = ({ title }) => {
+import { NavbarProps } from './Navbar.types'
+
+const Navbar = ({ title }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
 
