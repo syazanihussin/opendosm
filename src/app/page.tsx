@@ -1,10 +1,10 @@
 'use client'
 
-import Button from '@/components/button/Button'
-import Card from '@/components/card/Card'
-import Footer from '@/components/footer/Footer'
-import Navbar from '@/components/navbar/Navbar'
-import Sidebar from '@/components/sidebar/Sidebar'
+import Button from '@/components/Button/Button'
+import Card from '@/components/Card/Card'
+import Footer from '@/components/Footer/Footer'
+import Navbar from '@/components/Navbar/Navbar'
+import Sidebar from '@/components/Sidebar/Sidebar'
 
 export default function Home() {
   return (
