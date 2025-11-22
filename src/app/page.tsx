@@ -1,12 +1,11 @@
 'use client'
-
 import { useState } from 'react'
 
-import Button from './components/Button/Button'
-import Card from './components/Card/Card'
-import Footer from './components/Footer/Footer'
-import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/Sidebar/Sidebar'
+import Button from '@/components/Button/Button'
+import Card from '@/components/Card/Card'
+import Footer from '@/components/Footer/Footer'
+import Navbar from '@/components/Navbar/Navbar'
+import Sidebar from '@/components/Sidebar/Sidebar'
 
 export default function Home() {
   return (
