@@ -1,6 +1,6 @@
 import { DistrictRecord } from '@/types/dataset.types'
 
-export interface AmenityRecord extends DistrictRecord {
+export interface AmenityRecord {
   piped_water: number
   sanitation: number
   electricity: number
