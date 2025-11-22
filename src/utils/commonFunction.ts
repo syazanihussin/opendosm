@@ -4,19 +4,17 @@ export const getDatasetQueryString = ({ id, date, state, district }: GetDatasetP
   const filters: string[] = []
 
   if (date) {
-    filters.push(`${date}@date`)
+    filters.push(`&ifilter=${date}@date`)
   }
   if (state) {
-    filters.push(`${state}@state`)
+    filters.push(`&ifilter=${state}@state`)
   }
   if (district) {
-    filters.push(`${district}@district`)
+    filters.push(`&ifilter=${district}@district`)
   }
 
-  let filterString = ''
-  filters.forEach((filter: string) => {
-    filterString += `&ifilter=${filter}`
-  })
+  const filterString = filters.length ? filters.join() : ''
+  const queryString = `?id=${id}${filterString}`
 
-  return `?id=${id}${filterString}`
+  return queryString
 }

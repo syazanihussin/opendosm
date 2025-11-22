@@ -18,3 +18,15 @@ export interface GetDatasetProps {
 }
 
 export type GetDatasetResponse<T> = T[]
+
+export interface BaseRecord {
+  date: string
+}
+
+export interface StateRecord extends BaseRecord {
+  state: string
+}
+
+export interface DistrictRecord extends StateRecord {
+  district: string
+}
