@@ -1,4 +1,4 @@
-import { DistrictRecord } from '@/types/dataset.types'
+import { DistrictRecord } from '@root/types/dataset.types'
 
 export interface CrimeRecord {
   category: string

@@ -1,4 +1,4 @@
-import { BaseRecord, StateRecord } from '@/types/dataset.types.js'
+import { BaseRecord, StateRecord } from '@root/types/dataset.types.js'
 
 export interface FertilityRecord {
   age_group: string

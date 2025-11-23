@@ -1,9 +1,8 @@
 'use client'
 
+import useGetDataset from '@root/hooks/useGetDataset'
+import { DatasetId } from '@root/types/dataset.types'
 import React, { useEffect, useState } from 'react'
-
-import useGetDataset from '@/hooks/useGetDataset'
-import { DatasetId } from '@/types/dataset.types'
 
 const Households = () => {
   const [datasetId, setDatasetId] = useState<DatasetId>('hh_income')

@@ -1,3 +1,1 @@
-import Households from './Households'
-
-export default Households
+export { default } from './Households'

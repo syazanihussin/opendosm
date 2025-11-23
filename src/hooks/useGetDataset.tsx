@@ -1,10 +1,9 @@
 'use client'
 
+import { GetDatasetProps, GetDatasetResponse } from '@root/types/dataset.types'
+import { getDatasetQueryString } from '@root/utils/commonFunction'
+import { get } from '@root/utils/crud'
 import { useQuery } from '@tanstack/react-query'
-
-import { GetDatasetProps, GetDatasetResponse } from '@/types/dataset.types'
-import { getDatasetQueryString } from '@/utils/commonFunction'
-import { get } from '@/utils/crud'
 
 const useGetDataset = <T,>(props: GetDatasetProps) => {
   const queryString = getDatasetQueryString(props)

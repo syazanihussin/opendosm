@@ -1,4 +1,4 @@
-import { GetDatasetProps } from '@/types/dataset.types'
+import { GetDatasetProps } from '@root/types/dataset.types'
 
 export const getDatasetQueryString = ({ id, date, state, district }: GetDatasetProps) => {
   const filters: string[] = []

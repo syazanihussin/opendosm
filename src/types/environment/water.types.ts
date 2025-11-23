@@ -1,4 +1,4 @@
-import { StateRecord } from '@/types/dataset.types'
+import { StateRecord } from '@root/types/dataset.types'
 
 export interface WaterConsumptionRecord {
   sector: string

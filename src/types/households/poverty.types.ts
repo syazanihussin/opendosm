@@ -1,4 +1,4 @@
-import { BaseRecord, DistrictRecord, StateRecord } from '@/types/dataset.types'
+import { BaseRecord, DistrictRecord, StateRecord } from '@root/types/dataset.types'
 
 export interface PovertyRecord {
   poverty_absolute: number

@@ -1,4 +1,4 @@
-import { BaseRecord } from '@/types/dataset.types'
+import { BaseRecord } from '@root/types/dataset.types'
 
 export interface ArrivalRecord {
   country: string

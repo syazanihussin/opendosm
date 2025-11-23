@@ -1,4 +1,4 @@
-import { BaseRecord, StateRecord } from '@/types/dataset.types'
+import { BaseRecord, StateRecord } from '@root/types/dataset.types'
 
 export interface MarriageRecord {
   sex: string
