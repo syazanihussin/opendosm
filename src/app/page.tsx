@@ -2,7 +2,7 @@
 
 import { Button, Card, Footer, Navbar, Sidebar } from '@root/components'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Navbar title="brandopendosm" />
@@ -77,3 +77,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
