@@ -19,19 +19,19 @@ interface PopulationChartProps {
   color?: string
 }
 
-const PopulationChart: React.FC<PopulationChartProps> = ({
-  data,
-  dataKey,
-  xAxisKey,
-  title,
-  color = '#3b82f6',
-}) => {
+const PopulationChart: React.FC<PopulationChartProps> = ({ data, dataKey, xAxisKey, title }) => {
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg">
       <h3 className="text-lg font-semibold mb-4 text-gray-800">{title}</h3>
       <div className="h-[300px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
+            <defs>
+              <linearGradient id="barGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#ff3891" />
+                <stop offset="100%" stopColor="#ffbf04" />
+              </linearGradient>
+            </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
               dataKey={xAxisKey}
@@ -50,7 +50,7 @@ const PopulationChart: React.FC<PopulationChartProps> = ({
               }}
             />
             <Legend />
-            <Bar dataKey={dataKey} fill={color} radius={[4, 4, 0, 0]} />
+            <Bar dataKey={dataKey} fill="url(#barGradient)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

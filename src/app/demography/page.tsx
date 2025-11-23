@@ -82,7 +82,7 @@ const DemographyPage = () => {
   }
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="min-h-screen p-8 space-y-8 bg-gray-50">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Demography Overview</h1>
@@ -90,8 +90,8 @@ const DemographyPage = () => {
             Population statistics and distribution across Malaysia
           </p>
         </div>
-        <div className="bg-blue-50 px-4 py-2 rounded-lg border border-blue-100">
-          <span className="text-blue-600 font-medium">Latest Data: {latestYear}</span>
+        <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm">
+          <span className="text-blue-600 font-bold">Latest Data: {latestYear}</span>
         </div>
       </div>
 
