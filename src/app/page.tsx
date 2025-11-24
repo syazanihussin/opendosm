@@ -16,7 +16,7 @@ const Home = () => {
           <Card>
             <div>
               <h2 className="text-black text-2xl font-bold">Hey there!</h2>
-              <p className="text-gray-600">blablablad</p>
+              <p className="text-gray-600">asasasasa sasasyahmie</p>
             </div>
 
             <div className="space-x-4">
