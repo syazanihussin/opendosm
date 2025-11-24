@@ -5,25 +5,32 @@ import { Card } from '@root/components'
 import MalaysiaMap from '@root/components/Charts/MalaysiaMap'
 import PopulationChart from '@root/components/Charts/PopulationChart'
 import useGetDataset from '@root/hooks/useGetDataset'
-import { PopulationState } from '@root/types/demography/population.types'
+import { PopulationDistrict, PopulationState } from '@root/types/demography/population.types'
 import { useEffect, useState } from 'react'
 
 const DemographyPage = () => {
   const [selectedState, setSelectedState] = useState<string | null>(null)
   const [latestYear, setLatestYear] = useState<number>(0)
   const [currentYearData, setCurrentYearData] = useState<PopulationState[]>([])
-  const [sortedData, setSortedData] = useState<PopulationState[]>([])
+  const [currentDistrictData, setCurrentDistrictData] = useState<PopulationDistrict[]>([])
+  const [sortedData, setSortedData] = useState<PopulationState[] | PopulationDistrict[]>([])
   const [totalPopulation, setTotalPopulation] = useState<number>(0)
-  const [mapData, setMapData] = useState<{ state: string; value: number }[]>([])
-  const [chartData, setChartData] = useState<PopulationState[]>([])
+  const [mapData, setMapData] = useState<{ state: string; value: number; district?: string }[]>([])
+  const [chartData, setChartData] = useState<PopulationState[] | PopulationDistrict[]>([])
 
-  const { data: populationData, isLoading } = useGetDataset<PopulationState>({
+  const { data: populationData, isLoading: isLoadingState } = useGetDataset<PopulationState>({
     id: 'population_state',
   })
 
+  const { data: districtData, isLoading: isLoadingDistrict } = useGetDataset<PopulationDistrict>({
+    id: 'population_district',
+  })
+
+  const isLoading = isLoadingState || isLoadingDistrict
+
   useEffect(() => {
     if (populationData) {
-      console.log({ populationData })
+      console.log({ populationData, districtData })
       const year = Math.max(...populationData.map((d: PopulationState) => parseInt(d.date)))
       console.log('Setting latest year:', year)
       setLatestYear(year)
@@ -38,7 +45,19 @@ const DemographyPage = () => {
       console.log('Setting current year data:', currentData)
       setCurrentYearData(currentData)
     }
-  }, [populationData])
+
+    if (districtData && latestYear) {
+      const currentDistricts = districtData.filter(
+        (d: PopulationDistrict) =>
+          d.date.includes('2020') &&
+          d.sex === 'both' &&
+          d.ethnicity === 'overall' &&
+          d.age === 'overall',
+      )
+      console.log('Setting current district data:', currentDistricts)
+      setCurrentDistrictData(currentDistricts)
+    }
+  }, [populationData, districtData, latestYear])
 
   useEffect(() => {
     if (currentYearData.length > 0) {
@@ -66,16 +85,29 @@ const DemographyPage = () => {
 
   useEffect(() => {
     if (selectedState) {
-      console.log(
-        'Setting chart data (filtered):',
-        sortedData.filter((d) => d.state === selectedState),
-      )
-      setChartData(sortedData.filter((d) => d.state === selectedState))
+      const stateDistricts = currentDistrictData.filter((d) => d.state === selectedState)
+      const sortedDistricts = [...stateDistricts].sort((a, b) => b.population - a.population)
+
+      console.log('Setting chart data (districts):', sortedDistricts)
+      setChartData(sortedDistricts)
+
+      const map = stateDistricts.map((d) => ({
+        state: d.state,
+        district: d.district,
+        value: d.population,
+      }))
+      setMapData(map)
     } else {
       console.log('Setting chart data (all):', sortedData)
       setChartData(sortedData)
+
+      const map = currentYearData.map((d) => ({
+        state: d.state,
+        value: d.population,
+      }))
+      setMapData(map)
     }
-  }, [selectedState, sortedData])
+  }, [selectedState, sortedData, currentDistrictData, currentYearData])
 
   const handleStateClick = (stateName: string) => {
     setSelectedState((prev) => (prev === stateName ? null : stateName))
@@ -134,19 +166,17 @@ const DemographyPage = () => {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="lg:col-span-1">
-            <MalaysiaMap
-              data={mapData}
-              onStateClick={handleStateClick}
-              selectedState={selectedState}
-            />
+            <MalaysiaMap data={mapData} onStateClick={handleStateClick} selectedState={''} />
+          </div>
+          <div className="lg:col-span-1">
+            <MalaysiaMap data={mapData} onStateClick={() => {}} selectedState={'Johor'} />
           </div>
           <div className="lg:col-span-1">
             <PopulationChart
               title={selectedState ? `Population: ${selectedState}` : 'Population by State'}
               data={chartData || []}
               dataKey="population"
-              xAxisKey="state"
-              color="#3b82f6"
+              xAxisKey={selectedState ? 'district' : 'state'}
             />
           </div>
         </div>
