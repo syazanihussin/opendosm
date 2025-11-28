@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 'use client'
-
 import { Card } from '@root/components'
 import MalaysiaMap from '@root/components/Charts/MalaysiaMap'
 import PopulationChart from '@root/components/Charts/PopulationChart'
