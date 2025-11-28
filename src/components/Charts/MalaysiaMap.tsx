@@ -21,8 +21,8 @@ const MalaysiaMap: React.FC<MalaysiaMapProps> = ({ data, onStateClick, selectedS
   const colorScale = scaleLinear<string>().domain([0, maxVal]).range(['#E2E8F0', '#3B82F6'])
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow-lg w-full h-[500px]">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">
+    <div className="h-[500px] w-full rounded-xl bg-white p-4 shadow-lg">
+      <h3 className="mb-4 text-lg font-semibold text-gray-800">
         {selectedState ? `Districts of ${selectedState}` : 'Population Distribution Map'}
       </h3>
       <ComposableMap
@@ -31,7 +31,7 @@ const MalaysiaMap: React.FC<MalaysiaMapProps> = ({ data, onStateClick, selectedS
           scale: selectedState ? 6000 : 3000,
           center: selectedState ? [109, 4] : [109, 4], // TODO: Dynamic centering for states
         }}
-        className="w-full h-full"
+        className="h-full w-full"
       >
         <ZoomableGroup>
           {selectedState ? (
@@ -56,8 +56,8 @@ const MalaysiaMap: React.FC<MalaysiaMapProps> = ({ data, onStateClick, selectedS
                         isSelected
                           ? '#F59E0B'
                           : districtData
-                          ? colorScale(districtData.value)
-                          : '#E2E8F0'
+                            ? colorScale(districtData.value)
+                            : '#E2E8F0'
                       }
                       stroke="#FFFFFF"
                       strokeWidth={0.5}
@@ -104,7 +104,7 @@ const MalaysiaMap: React.FC<MalaysiaMapProps> = ({ data, onStateClick, selectedS
       </ComposableMap>
       <div className="mt-4 flex items-center justify-center text-sm text-gray-500">
         <span className="mr-2">Low Population</span>
-        <div className="w-24 h-2 bg-gradient-to-r from-gray-200 to-blue-500 rounded"></div>
+        <div className="h-2 w-24 rounded bg-gradient-to-r from-gray-200 to-blue-500"></div>
         <span className="ml-2">High Population</span>
       </div>
     </div>

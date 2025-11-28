@@ -21,8 +21,8 @@ interface PopulationChartProps {
 
 const PopulationChart: React.FC<PopulationChartProps> = ({ data, dataKey, xAxisKey, title }) => {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">{title}</h3>
+    <div className="rounded-xl bg-white p-6 shadow-lg">
+      <h3 className="mb-4 text-lg font-semibold text-gray-800">{title}</h3>
       <div className="h-[300px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>

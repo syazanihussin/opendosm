@@ -114,28 +114,31 @@ const DemographyPage = () => {
   }
 
   return (
-    <div className="min-h-screen p-8 space-y-8 bg-gray-50">
-      <div className="flex justify-between items-center">
+    <div className="min-h-screen space-y-8 bg-gray-50 p-8">
+      <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Demography Overview</h1>
-          <p className="text-gray-500 mt-1">
+          <p className="mt-1 text-gray-500">
             Population statistics and distribution across Malaysia
           </p>
         </div>
-        <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-blue-600 font-bold">Latest Data: {latestYear}</span>
+        <div className="rounded-lg border border-gray-200 bg-white px-4 py-2 shadow-sm">
+          <span className="font-bold text-blue-600">Latest Data: {latestYear}</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <div>sdsds</div>
+      </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card>
           <div className="p-4">
-            <h3 className="text-gray-500 font-medium mb-1">Total Population</h3>
+            <h3 className="mb-1 font-medium text-gray-500">Total Population</h3>
             <p className="text-3xl font-bold text-gray-900">
               {totalPopulation ? (totalPopulation / 1000).toFixed(1) + 'M' : 'Loading...'}
             </p>
-            <p className="text-sm text-green-600 mt-2 flex items-center">
-              <span className="bg-green-100 px-2 py-0.5 rounded-full">Live Estimate</span>
+            <p className="mt-2 flex items-center text-sm text-green-600">
+              <span className="rounded-full bg-green-100 px-2 py-0.5">Live Estimate</span>
             </p>
           </div>
         </Card>
@@ -143,10 +146,10 @@ const DemographyPage = () => {
         {selectedState && (
           <Card>
             <div className="p-4">
-              <h3 className="text-gray-500 font-medium mb-1">Selected State</h3>
+              <h3 className="mb-1 font-medium text-gray-500">Selected State</h3>
               <p className="text-3xl font-bold text-gray-900">{selectedState}</p>
-              <p className="text-sm text-blue-600 mt-2 flex items-center">
-                <span className="bg-blue-100 px-2 py-0.5 rounded-full">
+              <p className="mt-2 flex items-center text-sm text-blue-600">
+                <span className="rounded-full bg-blue-100 px-2 py-0.5">
                   {(
                     (currentYearData?.find((d) => d.state === selectedState)?.population || 0) /
                     1000
@@ -160,11 +163,11 @@ const DemographyPage = () => {
       </div>
 
       {isLoading ? (
-        <div className="h-96 flex items-center justify-center bg-white rounded-xl shadow-sm">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="flex h-96 items-center justify-center rounded-xl bg-white shadow-sm">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="lg:col-span-1">
             <MalaysiaMap data={mapData} onStateClick={handleStateClick} selectedState={''} />
           </div>

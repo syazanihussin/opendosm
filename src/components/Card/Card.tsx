@@ -4,7 +4,7 @@ const Card = ({ children, className = '' }: { children: React.ReactNode; classNa
   return (
     <>
       <div
-        className={`bg-white p-6 rounded-xl shadow mb-6 flex justify-between items-center ${className}`}
+        className={`mb-6 flex items-center justify-between rounded-xl bg-white p-6 shadow ${className}`}
       >
         {children}
       </div>
