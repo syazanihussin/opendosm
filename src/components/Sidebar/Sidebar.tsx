@@ -13,12 +13,26 @@ const Sidebar = () => {
             Demography
           </a>
 
-          <button className="rounded p-2 text-left hover:bg-gray-700">Profile</button>
-          <button className="rounded p-2 text-left hover:bg-gray-700">Income</button>
-          <button className="rounded p-2 text-left hover:bg-gray-700">Poverty</button>
-          <button className="rounded p-2 text-left hover:bg-gray-700">Inequality</button>
-          <button className="rounded p-2 text-left hover:bg-gray-700">Expenditure</button>
-          <button className="rounded p-2 text-left hover:bg-gray-700">Basic Amenities</button>
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Profile
+          </a>
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Income
+          </a>
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Poverty
+          </a>
+
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Inequality
+          </a>
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Expenditure
+          </a>
+
+          <a href="/demography" className="block rounded p-2 text-left hover:bg-gray-700">
+            Basic Amenities
+          </a>
         </nav>
       </aside>
     </>

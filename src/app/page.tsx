@@ -12,7 +12,7 @@ const Home = () => {
           <Sidebar />
         </aside>
 
-        <section className="h-full w-full bg-blue-500 p-10">
+        <section hidden className="h-full w-full bg-blue-500 p-10">
           <Card>
             <div>
               <h2 className="text-2xl font-bold text-black">Hey there!</h2>
