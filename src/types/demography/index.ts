@@ -1,0 +1,6 @@
+export * from './birth.types'
+export * from './death.types'
+export * from './fertility.types'
+export * from './marriage.types'
+export * from './migration.types'
+export * from './population.types'
