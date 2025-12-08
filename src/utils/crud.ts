@@ -4,8 +4,8 @@ import { api } from './axios'
 
 export const get = async <T>(
   url: string,
-  config?: AxiosRequestConfig,
   baseURL?: string,
+  config?: AxiosRequestConfig,
 ): Promise<T> => {
   const { data } = await api.request<T>({
     method: 'GET',
@@ -19,8 +19,8 @@ export const get = async <T>(
 export const post = async <T>(
   url: string,
   body: unknown,
-  config?: AxiosRequestConfig,
   baseURL?: string,
+  config?: AxiosRequestConfig,
 ): Promise<T> => {
   const { data } = await api.request<T>({
     method: 'POST',
@@ -35,8 +35,8 @@ export const post = async <T>(
 export const put = async <T>(
   url: string,
   body: unknown,
-  config?: AxiosRequestConfig,
   baseURL?: string,
+  config?: AxiosRequestConfig,
 ): Promise<T> => {
   const { data } = await api.request<T>({
     method: 'PUT',
@@ -50,8 +50,8 @@ export const put = async <T>(
 
 export const deleter = async <T>(
   url: string,
-  config?: AxiosRequestConfig,
   baseURL?: string,
+  config?: AxiosRequestConfig,
 ): Promise<T> => {
   const { data } = await api.request<T>({
     method: 'DELETE',

@@ -12,6 +12,7 @@ const useGetDataset = <T,>(props: GetDatasetProps) => {
     queryKey: ['dataset', props.id, props.date, props.state, props.district],
     queryFn: () => get<GetDatasetResponse<T>>(queryString),
     enabled: !!props.id, // only run if id is provided
+    staleTime: Infinity,
   })
 }
 
