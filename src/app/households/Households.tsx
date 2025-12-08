@@ -1,5 +1,6 @@
 'use client'
 
+import { InteractiveMap } from '@root/components'
 import useGetDataset from '@root/hooks/useGetDataset'
 import { DatasetId } from '@root/types/dataset.types'
 import React, { useEffect, useState } from 'react'
@@ -32,7 +33,12 @@ const Households = () => {
     }
   }, [data, isLoading, error])
 
-  return <div>Households1111</div>
+  return (
+    <>
+      <div>Households1111</div>
+      <InteractiveMap />
+    </>
+  )
 }
 
 export default Households
