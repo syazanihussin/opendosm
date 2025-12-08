@@ -1,4 +1,4 @@
-export interface GeoJsonProps {
+export interface GetGeoJsonProps {
   filename: string
 }
 
@@ -52,7 +52,7 @@ export interface Feature<P = StateProperties | DistrictProperties> {
   geometry: Geometry
 }
 
-export interface GeoJsonResponse<P = StateProperties | DistrictProperties> {
+export interface GetGeoJsonResponse<P = StateProperties | DistrictProperties> {
   type: string
   name: string
   crs: Crs
