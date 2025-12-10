@@ -2,20 +2,6 @@ export interface GetGeoJsonProps {
   filename: string
 }
 
-export interface CrsProperties {
-  name: string
-}
-
-export interface Crs {
-  type: string
-  properties: CrsProperties
-}
-
-export interface Geometry {
-  type: string
-  coordinates: [number, number][][][]
-}
-
 export interface StateProperties {
   GID_1: string // e.g. "MYS.1_1"
   GID_0: string // e.g. "MYS"
@@ -46,15 +32,10 @@ export interface DistrictProperties {
   HASC_2: string // e.g. "MY.JH.BP"
 }
 
-export interface Feature<P = StateProperties | DistrictProperties> {
-  type: string
-  properties: P
-  geometry: Geometry
-}
+export type Feature<P extends StateProperties | DistrictProperties> = GeoJSON.Feature<
+  GeoJSON.MultiPolygon,
+  P
+>
 
-export interface GetGeoJsonResponse<P = StateProperties | DistrictProperties> {
-  type: string
-  name: string
-  crs: Crs
-  features: Feature<P>[]
-}
+export type GetGeoJsonResponse<P extends StateProperties | DistrictProperties> =
+  GeoJSON.FeatureCollection<GeoJSON.MultiPolygon, P>

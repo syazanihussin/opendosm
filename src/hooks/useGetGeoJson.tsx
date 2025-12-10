@@ -1,10 +1,15 @@
 'use client'
 
-import { GetGeoJsonProps, GetGeoJsonResponse } from '@root/types/geojson'
+import {
+  DistrictProperties,
+  GetGeoJsonProps,
+  GetGeoJsonResponse,
+  StateProperties,
+} from '@root/types/geojson'
 import { get } from '@root/utils/crud'
 import { useQuery } from '@tanstack/react-query'
 
-const useGetGeoJson = <P,>(props: GetGeoJsonProps) => {
+const useGetGeoJson = <P extends StateProperties | DistrictProperties>(props: GetGeoJsonProps) => {
   const { filename } = props
 
   return useQuery<GetGeoJsonResponse<P>, Error>({
