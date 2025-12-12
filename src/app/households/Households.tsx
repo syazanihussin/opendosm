@@ -35,7 +35,7 @@ const Households = () => {
 
   return (
     <>
-      <div>Households1111</div>
+      {/* <div>Households1111</div> */}
       <InteractiveMap />
     </>
   )
