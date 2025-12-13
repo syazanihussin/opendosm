@@ -51,6 +51,9 @@ const InteractiveMap = () => {
     setSelectedState(null)
     setSelectedDistrict(null)
 
+    g.selectAll('.state').transition().duration(200).attr('fill', '#e2e8f0')
+    g.selectAll('.district').remove()
+
     svg
       .transition()
       .duration(750)
@@ -59,9 +62,6 @@ const InteractiveMap = () => {
         d3.zoomIdentity,
         d3.zoomTransform(svgRef.current).invert([dimensions.width / 2, dimensions.height / 2]),
       )
-
-    g.selectAll('.state').transition().duration(200).attr('fill', '#e2e8f0')
-    g.selectAll('.district').remove()
   }
 
   const pathGenerator = useMemo(() => {
@@ -188,6 +188,37 @@ const InteractiveMap = () => {
         })
     }
   }, [selectedState, stateData, pathGenerator, zoom, onClickState])
+
+  // Re-center map when dimensions change
+  useEffect(() => {
+    if (!svgRef.current || !stateData || !districtData) return
+
+    const svg = d3.select(svgRef.current)
+
+    // Case 1: District Selected - Re-center on district
+    if (selectedDistrict) {
+      const feature = districtData.features.find((f) => f.properties.NAME_2 === selectedDistrict)
+      console.log({ feature, selectedDistrict })
+      if (feature) {
+        const { translate, scale } = getTranslationAndScale(feature)
+        console.log({ translate, scale, selectedDistrict })
+        svg.call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale))
+      }
+      return
+    }
+
+    // Case 2: State Selected - Re-center on state
+    if (selectedState) {
+      const feature = stateData.features.find((f) => f.properties.NAME_1 === selectedState)
+      console.log({ feature, selectedState })
+      if (feature) {
+        const { translate, scale } = getTranslationAndScale(feature)
+        console.log({ translate, scale, selectedState })
+        svg.call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale))
+      }
+      return
+    }
+  }, [getTranslationAndScale])
 
   // Handling "Selected State" -> Show Districts
   useEffect(() => {
